@@ -16,6 +16,10 @@ public class OrganizationController {
 	@Autowired
 	private EmployeeServiceCrudInterface employeeServiceCrudInterface ;
 	
+	 @RequestMapping("/")
+	    public String welcome() {//Welcome page, non-rest
+	        return "Welcome to RestTemplate Example.";
+	    }
 	@RequestMapping(value="/users/", method=RequestMethod.GET)
 	public ResponseEntity<Iterable<Employee>> getEmployee(){
 		return new ResponseEntity<Iterable<Employee>>(employeeServiceCrudInterface.findAll(), HttpStatus.OK);
